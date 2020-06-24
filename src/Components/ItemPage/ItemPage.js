@@ -19,7 +19,7 @@ import Fade from "react-reveal/Fade";
 
 class ItemPage extends React.Component {
   componentDidMount() {
-    return this.props.movies
+    this.props.movies
       ? this.props.dispatch(getAdditionalMovieData(this.props.item.id))
       : this.props.dispatch(getAdditionalTVData(this.props.item.id));
     window.scrollTo(0, 0);

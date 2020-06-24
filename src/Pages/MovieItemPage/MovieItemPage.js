@@ -16,8 +16,6 @@ class MovieItemPage extends React.Component {
   }
 
   render() {
-    const { isFetching } = this.props;
-    console.log(this.props.isFetching);
     return (
       <div className="movie-item-page">
         <ItemPageOverviewContainer

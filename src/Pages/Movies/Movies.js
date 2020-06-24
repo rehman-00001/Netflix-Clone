@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import "./Movies.scss";
 import { connect } from "react-redux";
 import {
