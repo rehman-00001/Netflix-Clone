@@ -1,11 +1,11 @@
-import TVActionTypes from "./tv-types";
+import TVActionTypes from './tv-types';
 
 const INITIAL_STATE = {
   isFetching: true,
   tvItems: [],
   tvGridItems: [],
   tvCast: [],
-  tvVideos: ""
+  tvVideos: '',
 };
 
 const TVReducer = (state = INITIAL_STATE, action) => {
@@ -26,7 +26,7 @@ const TVReducer = (state = INITIAL_STATE, action) => {
         tvCast: payload.credits.cast,
         tvVideos: payload.videos.results.length
           ? payload.videos.results[0].key
-          : "no_trailer_found"
+          : 'no_trailer_found',
       };
     }
     default:

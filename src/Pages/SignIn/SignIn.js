@@ -1,36 +1,36 @@
-import React from "react";
-import "./SignIn.scss";
-import Background from "../../Assets/Background.jpg";
-import FormInput from "../../Components/FormInput/FormInput";
-import CustomButton from "../../Components/CustomButton/CustomButton";
-import { Link } from "react-router-dom";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { signInWithGoogle } from "../../Firebase/firebase.utils";
-import { auth } from "../../Firebase/firebase.utils";
+import React from 'react';
+import './SignIn.scss';
+import Background from '../../Assets/Background.jpg';
+import FormInput from '../../Components/FormInput/FormInput';
+import CustomButton from '../../Components/CustomButton/CustomButton';
+import { Link } from 'react-router-dom';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { signInWithGoogle } from '../../Firebase/firebase.utils';
+import { auth } from '../../Firebase/firebase.utils';
 
 class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: '',
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password } = this.state;
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
+      this.setState({ email: '', password: '' });
     } catch (error) {
       console.error(error);
     }
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { value, name } = event.target;
 
     this.setState({ [name]: value });
@@ -73,11 +73,14 @@ class SignIn extends React.Component {
               <div className="signin__btn-container">
                 <div className="signin__btn">
                   <CustomButton type="submit" signin>
-                    {" "}
-                    Sign In{" "}
+                    {' '}
+                    Sign In{' '}
                   </CustomButton>
                   <CustomButton onClick={signInWithGoogle}>
-                    <FontAwesomeIcon icon={faGoogle} className="signin__google-icon" />
+                    <FontAwesomeIcon
+                      icon={faGoogle}
+                      className="signin__google-icon"
+                    />
                     Sign In With Google
                   </CustomButton>
                 </div>

@@ -1,11 +1,11 @@
-import React from "react";
-import "./SearchItem.scss";
-import { withRouter } from "react-router";
-import { IMAGE_BASE_URL, POSTER_SIZE } from "../../Config/config";
-import imdb from "../../Assets/imdb.png";
-import star from "../../Assets/star.png";
-import { FixString } from "../../Utils/FixString";
-import AddToList from "../AddToList/AddToList";
+import React from 'react';
+import './SearchItem.scss';
+import { withRouter } from 'react-router';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../../Config/config';
+import imdb from '../../Assets/imdb.png';
+import star from '../../Assets/star.png';
+import { FixString } from '../../Utils/FixString';
+import AddToList from '../AddToList/AddToList';
 
 const SearchItem = ({ item, history, ListItems }) => {
   const { id, title, poster_path, vote_average, name } = item;

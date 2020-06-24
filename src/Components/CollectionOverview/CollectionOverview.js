@@ -1,12 +1,12 @@
-import React from "react";
-import "./CollectionOverview.scss";
-import CollectionPreview from "../CollectionPreview/CollectionPreview";
-import {connect} from 'react-redux';
-import {selectCollectionData} from '../../Redux/Collection/collection-selectors';
+import React from 'react';
+import './CollectionOverview.scss';
+import CollectionPreview from '../CollectionPreview/CollectionPreview';
+import { connect } from 'react-redux';
+import { selectCollectionData } from '../../Redux/Collection/collection-selectors';
 
 const CollectionOverview = ({ movies, tvshow, collection }) => (
   <div className="collection-overview">
-    {collection.map(items => (
+    {collection.map((items) => (
       <CollectionPreview
         key={items.id}
         title={items.title}
@@ -19,8 +19,8 @@ const CollectionOverview = ({ movies, tvshow, collection }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  collection: selectCollectionData(state)
+const mapStateToProps = (state) => ({
+  collection: selectCollectionData(state),
 });
 
 export default connect(mapStateToProps)(CollectionOverview);

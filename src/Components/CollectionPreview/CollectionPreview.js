@@ -1,18 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./CollectionPreview.scss";
-import CollectionItem from "../CollectionItem/CollectionItem";
-import { connect } from "react-redux";
-import { selectMovieItems } from "../../Redux/Movie/movie-selectors";
-import { selectTVItems } from "../../Redux/TVShow/tv-selectors";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './CollectionPreview.scss';
+import CollectionItem from '../CollectionItem/CollectionItem';
+import { connect } from 'react-redux';
+import { selectMovieItems } from '../../Redux/Movie/movie-selectors';
+import { selectTVItems } from '../../Redux/TVShow/tv-selectors';
 import {
   faChevronLeft,
-  faChevronRight
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TitleHide } from "../../Utils/TitleHide";
-import { LeftArrow, RightArrow } from "../../Utils/ScrollArrows";
-import Fade from "react-reveal/Fade";
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TitleHide } from '../../Utils/TitleHide';
+import { LeftArrow, RightArrow } from '../../Utils/ScrollArrows';
+import Fade from 'react-reveal/Fade';
 
 class CollectionPreview extends React.Component {
   constructor() {
@@ -34,7 +34,15 @@ class CollectionPreview extends React.Component {
   };
 
   render() {
-    const { title,movieItems,tvItems,start,end,movies,tvshow } = this.props;
+    const {
+      title,
+      movieItems,
+      tvItems,
+      start,
+      end,
+      movies,
+      tvshow,
+    } = this.props;
     const movieData = movieItems.slice(start, end);
     const tvData = tvItems.slice(start, end);
     return (
@@ -59,7 +67,7 @@ class CollectionPreview extends React.Component {
             </span>
             <div className="collection-preview__inner" ref={this.divRef}>
               {movies
-                ? movieData.map(item => (
+                ? movieData.map((item) => (
                     <CollectionItem
                       key={item.id}
                       item={item}
@@ -69,7 +77,7 @@ class CollectionPreview extends React.Component {
                   ))
                 : null}
               {tvshow
-                ? tvData.map(item => (
+                ? tvData.map((item) => (
                     <CollectionItem
                       key={item.id}
                       item={item}
@@ -86,9 +94,9 @@ class CollectionPreview extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   movieItems: selectMovieItems(state),
-  tvItems: selectTVItems(state)
+  tvItems: selectTVItems(state),
 });
 
 export default connect(mapStateToProps)(CollectionPreview);

@@ -1,15 +1,15 @@
-import React from "react";
-import "./CollectionGrid.scss";
-import CollectionGridItem from "../CollectionGridItem/CollectionGridItem";
-import { connect } from "react-redux";
-import { selectMovieGridItems } from "../../Redux/Movie/movie-selectors";
-import { selectTVGridItems } from "../../Redux/TVShow/tv-selectors";
+import React from 'react';
+import './CollectionGrid.scss';
+import CollectionGridItem from '../CollectionGridItem/CollectionGridItem';
+import { connect } from 'react-redux';
+import { selectMovieGridItems } from '../../Redux/Movie/movie-selectors';
+import { selectTVGridItems } from '../../Redux/TVShow/tv-selectors';
 import {
   faChevronLeft,
-  faChevronRight
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { LeftGridArrow, RightGridArrow } from "../../Utils/GridScrollArrows";
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LeftGridArrow, RightGridArrow } from '../../Utils/GridScrollArrows';
 
 class CollectionGrid extends React.Component {
   constructor() {
@@ -31,12 +31,12 @@ class CollectionGrid extends React.Component {
         <div className="collection-grid__outer" ref={this.gridRef}>
           <div className="collection-grid__inner">
             {movies
-              ? movieGridItems.map(item => (
+              ? movieGridItems.map((item) => (
                   <CollectionGridItem key={item.id} item={item} />
                 ))
               : null}
             {tvshow
-              ? tvShowGridItems.map(item => (
+              ? tvShowGridItems.map((item) => (
                   <CollectionGridItem key={item.id} item={item} />
                 ))
               : null}
@@ -54,9 +54,9 @@ class CollectionGrid extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   movieGridItems: selectMovieGridItems(state),
-  tvShowGridItems: selectTVGridItems(state)
+  tvShowGridItems: selectTVGridItems(state),
 });
 
 export default connect(mapStateToProps)(CollectionGrid);

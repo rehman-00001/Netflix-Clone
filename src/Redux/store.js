@@ -3,10 +3,16 @@ import rootReducer from './root-reducer';
 import thunk from 'redux-thunk';
 import { persistStore } from 'redux-persist';
 
-const middlewares = [thunk]
+const middlewares = [thunk];
 
 export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
 export const persistor = persistStore(store);
 
-
+export const initializeStore = (initialState = {}) => {
+  return createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(...middlewares),
+  );
+};

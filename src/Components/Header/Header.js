@@ -1,25 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../Assets/logo.png";
-import "./Header.scss";
-import { withRouter } from "react-router";
-import SearchBar from "../SearchBar/SearchBar";
-import { auth } from "../../Firebase/firebase.utils";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../../Assets/logo.png';
+import './Header.scss';
+import { withRouter } from 'react-router';
+import SearchBar from '../SearchBar/SearchBar';
+import { auth } from '../../Firebase/firebase.utils';
 import {
   selectCurrentUser,
-  selectToggleHidden
-} from "../../Redux/User/user-selectors";
-import { ToggleMenuHidden } from "../../Redux/User/user-actions";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import NavMenu from "./NavMenu";
+  selectToggleHidden,
+} from '../../Redux/User/user-selectors';
+import { ToggleMenuHidden } from '../../Redux/User/user-actions';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import NavMenu from './NavMenu';
 
-const Header = ({history,currentUser,currentRoute,hidden,ToggleMenuHidden}) => {
+const Header = ({
+  history,
+  currentUser,
+  currentRoute,
+  hidden,
+  ToggleMenuHidden,
+}) => {
   return (
     <div className="header">
-      <div className="header__logo-box" onClick={() => history.push("/movies")}>
+      <div className="header__logo-box" onClick={() => history.push('/movies')}>
         <img src={Logo} alt="logo" className="header__logo" />
       </div>
 
@@ -78,19 +84,16 @@ const Header = ({history,currentUser,currentRoute,hidden,ToggleMenuHidden}) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentUser: selectCurrentUser(state),
-  hidden: selectToggleHidden(state)
+  hidden: selectToggleHidden(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  ToggleMenuHidden: () => dispatch(ToggleMenuHidden())
+const mapDispatchToProps = (dispatch) => ({
+  ToggleMenuHidden: () => dispatch(ToggleMenuHidden()),
 });
 
 export default compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+  connect(mapStateToProps, mapDispatchToProps),
 )(Header);

@@ -1,51 +1,51 @@
-import React from "react";
-import "./SignUp.scss";
-import Background from "../../Assets/Background.jpg";
-import FormInput from "../../Components/FormInput/FormInput";
-import CustomButton from "../../Components/CustomButton/CustomButton";
-import { Link } from "react-router-dom";
-import { auth, CreateUserProfileDocument } from "../../Firebase/firebase.utils";
+import React from 'react';
+import './SignUp.scss';
+import Background from '../../Assets/Background.jpg';
+import FormInput from '../../Components/FormInput/FormInput';
+import CustomButton from '../../Components/CustomButton/CustomButton';
+import { Link } from 'react-router-dom';
+import { auth, CreateUserProfileDocument } from '../../Firebase/firebase.utils';
 
 class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
+      displayName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
-      alert("Passwords dont match");
+      alert('Passwords dont match');
       return;
     }
     try {
       const { user } = await auth.createUserWithEmailAndPassword(
         email,
-        password
+        password,
       );
 
       await CreateUserProfileDocument(user, { displayName });
 
       this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
       });
     } catch (error) {
       console.error(error);
     }
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });

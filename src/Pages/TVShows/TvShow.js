@@ -1,17 +1,21 @@
-import React, { Suspense } from "react";
-import "./TvShow.scss";
-import { connect } from "react-redux";
+import React, { Suspense } from 'react';
+import './TvShow.scss';
+import { connect } from 'react-redux';
 import {
   selectTVItems,
-  selectIsTVFetching
-} from "../../Redux/TVShow/tv-selectors";
-import { getTvShows } from "../../Redux/TVShow/tv-actions";
+  selectIsTVFetching,
+} from '../../Redux/TVShow/tv-selectors';
+import { getTvShows } from '../../Redux/TVShow/tv-actions';
 
-const CollectionGridTVShows = React.lazy(() => import("../../Components/CollectionGrid/CollectionGridTVShows"));
+const CollectionGridTVShows = React.lazy(() =>
+  import('../../Components/CollectionGrid/CollectionGridTVShows'),
+);
 
-const CollectionOverviewTVShows = React.lazy(() => import("../../Components/CollectionOverview/CollectionOverviewTVShows"));
+const CollectionOverviewTVShows = React.lazy(() =>
+  import('../../Components/CollectionOverview/CollectionOverviewTVShows'),
+);
 
-const Footer = React.lazy(() => import("../../Components/Footer/Footer"));
+const Footer = React.lazy(() => import('../../Components/Footer/Footer'));
 
 class TvShow extends React.Component {
   componentDidMount() {
@@ -31,9 +35,9 @@ class TvShow extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   tvItems: selectTVItems(state),
-  isFetching: selectIsTVFetching(state)
+  isFetching: selectIsTVFetching(state),
 });
 
 export default connect(mapStateToProps)(TvShow);

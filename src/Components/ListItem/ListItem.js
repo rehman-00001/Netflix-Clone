@@ -1,15 +1,15 @@
-import React from "react";
-import "./ListItem.scss";
-import { withRouter } from "react-router";
-import { IMAGE_BASE_URL, POSTER_SIZE } from "../../Config/config";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import imdb from "../../Assets/imdb.png";
-import star from "../../Assets/star.png";
-import { FixString } from "../../Utils/FixString";
-import { removeItem } from "../../Redux/List/list-actions";
-import { connect } from "react-redux";
-import { compose } from "redux";
+import React from 'react';
+import './ListItem.scss';
+import { withRouter } from 'react-router';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../../Config/config';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import imdb from '../../Assets/imdb.png';
+import star from '../../Assets/star.png';
+import { FixString } from '../../Utils/FixString';
+import { removeItem } from '../../Redux/List/list-actions';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 const ListItem = ({ item, history, removeItem }) => {
   const { id, title, poster_path, vote_average, name } = item;
@@ -52,14 +52,8 @@ const ListItem = ({ item, history, removeItem }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  removeItem: item => dispatch(removeItem(item))
+const mapDispatchToProps = (dispatch) => ({
+  removeItem: (item) => dispatch(removeItem(item)),
 });
 
-export default compose(
-  withRouter,
-  connect(
-    null,
-    mapDispatchToProps
-  )
-)(ListItem);
+export default compose(withRouter, connect(null, mapDispatchToProps))(ListItem);

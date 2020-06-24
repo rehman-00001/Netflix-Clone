@@ -1,26 +1,26 @@
-import $ from "jquery";
+import $ from 'jquery';
 
-export const LeftGridArrow = node => {
+export const LeftGridArrow = (node) => {
   var move = node.current;
   var width = window.innerWidth;
-  var pixelWidth = width + "px";
+  var pixelWidth = width + 'px';
   console.log(pixelWidth);
   $(move).animate(
     {
-      scrollLeft: "-=" + pixelWidth
+      scrollLeft: '-=' + pixelWidth,
     },
-    "slow"
+    'slow',
   );
 };
 
-export const RightGridArrow = node => {
+export const RightGridArrow = (node) => {
   var move = node.current;
   var width = window.innerWidth;
-  var pixelWidth = width + "px";
+  var pixelWidth = width + 'px';
   $(move).animate(
     {
-      scrollLeft: "+=" + pixelWidth
+      scrollLeft: '+=' + pixelWidth,
     },
-    "slow"
+    'slow',
   );
 };

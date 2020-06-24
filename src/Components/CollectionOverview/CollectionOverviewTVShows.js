@@ -1,19 +1,19 @@
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { compose } from "redux";
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 
-import { selectIsTVFetching } from "../../Redux/TVShow/tv-selectors";
+import { selectIsTVFetching } from '../../Redux/TVShow/tv-selectors';
 
-import WithSpinnerTVShows from "../WithSpinner/WithSpinnerTVShows";
-import CollectionOverview from "./CollectionOverview";
+import WithSpinnerTVShows from '../WithSpinner/WithSpinnerTVShows';
+import CollectionOverview from './CollectionOverview';
 
 const mapStateToProps = createStructuredSelector({
-  isTVOverviewLoading: selectIsTVFetching
+  isTVOverviewLoading: selectIsTVFetching,
 });
 
 const CollectionOverviewTVShows = compose(
   connect(mapStateToProps),
-  WithSpinnerTVShows
+  WithSpinnerTVShows,
 )(CollectionOverview);
 
 export default CollectionOverviewTVShows;

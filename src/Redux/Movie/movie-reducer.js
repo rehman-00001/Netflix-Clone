@@ -1,4 +1,4 @@
-import MovieActionTypes from "./movie-types";
+import MovieActionTypes from './movie-types';
 
 const INITIAL_STATE = {
   isFetching: true,
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   movieItems: [],
   movieGridItems: [],
   movieCast: [],
-  movieVideos: ""
+  movieVideos: '',
 };
 
 const movieReducer = (state = INITIAL_STATE, action) => {
@@ -30,7 +30,7 @@ const movieReducer = (state = INITIAL_STATE, action) => {
         movieCast: payload.credits.cast,
         movieVideos: payload.videos.results.length
           ? payload.videos.results[0].key
-          : "no_trailer_found"
+          : 'no_trailer_found',
       };
     }
 

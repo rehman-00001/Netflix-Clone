@@ -1,6 +1,6 @@
 export const addItemToList = (listItems, listItemToAdd) => {
   const existingListItem = listItems.find(
-    listItem => listItem.id === listItemToAdd.id
+    (listItem) => listItem.id === listItemToAdd.id,
   );
 
   if (existingListItem) return listItems;
@@ -10,5 +10,5 @@ export const addItemToList = (listItems, listItemToAdd) => {
 };
 
 export const removeItemFromList = (listItems, listItemToRemove) => {
-  return listItems.filter(items => items.id !== listItemToRemove.id);
+  return listItems.filter((items) => items.id !== listItemToRemove.id);
 };

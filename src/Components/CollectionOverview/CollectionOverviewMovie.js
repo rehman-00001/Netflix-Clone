@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { compose } from "redux";
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 
-import { selectIsMovieFetching } from "../../Redux/Movie/movie-selectors";
+import { selectIsMovieFetching } from '../../Redux/Movie/movie-selectors';
 
-import WithSpinnerMovie from "../WithSpinner/WithSpinnerMovie";
-import CollectionOverview from "./CollectionOverview";
+import WithSpinnerMovie from '../WithSpinner/WithSpinnerMovie';
+import CollectionOverview from './CollectionOverview';
 
 const mapStateToProps = createStructuredSelector({
   isMovieOverviewLoading: selectIsMovieFetching,
@@ -13,7 +13,7 @@ const mapStateToProps = createStructuredSelector({
 
 const CollectionOverviewMovie = compose(
   connect(mapStateToProps),
-  WithSpinnerMovie
+  WithSpinnerMovie,
 )(CollectionOverview);
 
 export default CollectionOverviewMovie;

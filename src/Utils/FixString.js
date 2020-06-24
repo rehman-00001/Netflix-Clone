@@ -1,3 +1,7 @@
 export const FixString = (string) => {
-  return string.split(" ").join("").toLowerCase().replace(/[^a-z0-9]/g, "");
-}
+  return string
+    .split(' ')
+    .join('')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+};

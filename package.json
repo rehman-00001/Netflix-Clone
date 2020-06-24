@@ -29,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,7 +48,18 @@
     ]
   },
   "devDependencies": {
-    "font-awesome": "^4.7.0"
+    "@testing-library/dom": "^7.17.1",
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.4.1",
+    "@testing-library/user-event": "^12.0.7",
+    "@types/jest": "^26.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "font-awesome": "^4.7.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "prettier": "^2.0.5"
   },
   "description": "- **Netflix Clone made with React, Redux and Firebase**",
   "main": "index.js",

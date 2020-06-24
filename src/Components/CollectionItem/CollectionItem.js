@@ -1,19 +1,20 @@
-import React from "react";
-import { IMAGE_BASE_URL, GRID_IMAGE_SIZE } from "../../Config/config";
-import "./CollectionItem.scss";
-import Truncate from "../../Utils/Truncate";
-import { withRouter } from "react-router";
-import { FixString } from "../../Utils/FixString";
-import AddToList from "../AddToList/AddToList";
+import React from 'react';
+import { IMAGE_BASE_URL, GRID_IMAGE_SIZE } from '../../Config/config';
+import './CollectionItem.scss';
+import Truncate from '../../Utils/Truncate';
+import { withRouter } from 'react-router';
+import { FixString } from '../../Utils/FixString';
+import AddToList from '../AddToList/AddToList';
 
-const CollectionItem = ({ item,movies,tvshow,history}) => {
+const CollectionItem = ({ item, movies, tvshow, history }) => {
   const { title, overview, backdrop_path, name } = item;
-  const para = Truncate(overview, 155, " ..read more");
+  const para = Truncate(overview, 155, ' ..read more');
   var titlePath = movies ? FixString(title) : null;
   var namePath = tvshow ? FixString(name) : null;
   return (
     <div className="collection-item">
-      <div onClick={() => {
+      <div
+        onClick={() => {
           return movies
             ? history.push(`/movies/${titlePath}`)
             : history.push(`/tvshows/${namePath}`);

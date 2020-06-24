@@ -2,41 +2,41 @@ const INITIAL_STATE = {
   collection: [
     {
       id: 1,
-      title: "Popular",
+      title: 'Popular',
       start: 0,
-      end: 10
+      end: 10,
     },
     {
       id: 2,
-      title: "Top Rated",
+      title: 'Top Rated',
       start: 10,
-      end: 20
+      end: 20,
     },
     {
       id: 3,
-      title: "Highest Grossing",
+      title: 'Highest Grossing',
       start: 20,
-      end: 30
+      end: 30,
     },
     {
       id: 4,
-      title: "New Releases",
+      title: 'New Releases',
       start: 30,
-      end: 40
+      end: 40,
     },
     {
       id: 5,
-      title: "Most Liked",
+      title: 'Most Liked',
       start: 40,
-      end: 50
+      end: 50,
     },
     {
       id: 6,
-      title: "Trending Now",
+      title: 'Trending Now',
       start: 50,
-      end: 60
-    }
-  ]
+      end: 60,
+    },
+  ],
 };
 
 const collectionReducer = (state = INITIAL_STATE, action) => {

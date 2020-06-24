@@ -1,17 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./NavMenu.scss";
-import { withRouter } from "react-router";
-import { auth } from "../../Firebase/firebase.utils";
-import { selectCurrentUser } from "../../Redux/User/user-selectors";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ToggleMenuHidden } from "../../Redux/User/user-actions";
-import Netflix from "../../Assets/netflix.jpg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './NavMenu.scss';
+import { withRouter } from 'react-router';
+import { auth } from '../../Firebase/firebase.utils';
+import { selectCurrentUser } from '../../Redux/User/user-selectors';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ToggleMenuHidden } from '../../Redux/User/user-actions';
+import Netflix from '../../Assets/netflix.jpg';
 
-const NavMenu = ({ history, currentUser, ToggleMenuHidden }) => {
+const NavMenu = ({ currentUser, ToggleMenuHidden }) => {
   return (
     <div className="overlay">
       <div className="overlay__exit" onClick={ToggleMenuHidden}>
@@ -61,18 +61,15 @@ const NavMenu = ({ history, currentUser, ToggleMenuHidden }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: selectCurrentUser(state)
+const mapStateToProps = (state) => ({
+  currentUser: selectCurrentUser(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  ToggleMenuHidden: () => dispatch(ToggleMenuHidden())
+const mapDispatchToProps = (dispatch) => ({
+  ToggleMenuHidden: () => dispatch(ToggleMenuHidden()),
 });
 
 export default compose(
   withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+  connect(mapStateToProps, mapDispatchToProps),
 )(NavMenu);

@@ -1,7 +1,7 @@
-import SearchActionTypes from "./search-types";
+import SearchActionTypes from './search-types';
 
 const INITIAL_STATE = {
-  searchItems: []
+  searchItems: [],
 };
 
 const searchReducer = (state = INITIAL_STATE, action) => {

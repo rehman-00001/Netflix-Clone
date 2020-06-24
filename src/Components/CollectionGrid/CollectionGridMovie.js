@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { compose } from "redux";
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 
-import { selectIsMovieFetching } from "../../Redux/Movie/movie-selectors";
+import { selectIsMovieFetching } from '../../Redux/Movie/movie-selectors';
 
-import WithSpinnerMovie from "../WithSpinner/WithSpinnerMovie";
-import CollectionGrid from "./CollectionGrid";
+import WithSpinnerMovie from '../WithSpinner/WithSpinnerMovie';
+import CollectionGrid from './CollectionGrid';
 
 const mapStateToProps = createStructuredSelector({
   isMovieGridLoading: selectIsMovieFetching,
@@ -13,7 +13,7 @@ const mapStateToProps = createStructuredSelector({
 
 const CollectionGridMovie = compose(
   connect(mapStateToProps),
-  WithSpinnerMovie
+  WithSpinnerMovie,
 )(CollectionGrid);
 
 export default CollectionGridMovie;

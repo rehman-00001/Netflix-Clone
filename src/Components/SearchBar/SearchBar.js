@@ -1,32 +1,32 @@
-import React from "react";
-import "./SearchBar.scss";
-import { withRouter } from "react-router";
-import { selectSearchItems } from "../../Redux/Search/search-selectors";
-import { getSearchData } from "../../Redux/Search/search-actions";
-import { connect } from "react-redux";
-import { compose } from "redux";
+import React from 'react';
+import './SearchBar.scss';
+import { withRouter } from 'react-router';
+import { selectSearchItems } from '../../Redux/Search/search-selectors';
+import { getSearchData } from '../../Redux/Search/search-actions';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentPath: ""
+      currentPath: '',
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { value } = event.target;
     if (
       Number(value.length) === 1 &&
-      this.props.currentRoute !== "/searchresults"
+      this.props.currentRoute !== '/searchresults'
     ) {
       this.setState({ currentPath: this.props.currentRoute }, () =>
-        this.props.history.push("/searchresults")
+        this.props.history.push('/searchresults'),
       );
     } else if (Number(value.length) === 0) {
       this.props.history.push(`${this.state.currentPath}`);
     } else if (Number(value.length) > 1) {
-      this.props.history.push("/searchresults");
+      this.props.history.push('/searchresults');
     }
     return value ? this.props.dispatch(getSearchData(value)) : null;
   };
@@ -50,11 +50,8 @@ class SearchBar extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  searchItems: selectSearchItems(state)
+const mapStateToProps = (state) => ({
+  searchItems: selectSearchItems(state),
 });
 
-export default compose(
-  withRouter,
-  connect(mapStateToProps)
-)(SearchBar);
+export default compose(withRouter, connect(mapStateToProps))(SearchBar);
